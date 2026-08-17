@@ -132,9 +132,11 @@ The report can contain:
 - AI financial observations
 - Monthly financial summary
 
+
+
 ---
-
-
+---
+---
 😊😊😊BASIC NEEDS😊😊😊
 
 
