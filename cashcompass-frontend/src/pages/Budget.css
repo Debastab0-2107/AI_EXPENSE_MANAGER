@@ -1,0 +1,3700 @@
+* {
+  box-sizing: border-box;
+}
+
+.income-page {
+  min-height: 100vh;
+  background: #f5f8f7;
+  color: #1e293b;
+  display: flex;
+  font-family: Inter, "Plus Jakarta Sans", "Segoe UI", Arial, sans-serif;
+}
+
+.income-page button,
+.income-page input,
+.income-page select,
+.income-page textarea {
+  font: inherit;
+}
+
+.income-sidebar {
+  width: 92px;
+  min-height: 100vh;
+  background: #f9faf9;
+  border-right: 1px solid #e5ebe8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 12px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 80;
+}
+
+.income-sidebar-logo {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 35px;
+}
+
+.income-sidebar-logo img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.income-sidebar-menu,
+.income-sidebar-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.income-sidebar-bottom {
+  margin-top: auto;
+}
+
+.income-sidebar-item {
+  width: 58px;
+  height: 58px;
+  border: none;
+  border-radius: 18px;
+  background: transparent;
+  color: #66706b;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transition: transform .25s ease, background .25s ease, color .25s ease, box-shadow .25s ease;
+}
+
+.income-sidebar-item span {
+  font-size: 21px;
+}
+
+.income-sidebar-item small {
+  font-size: 8px;
+}
+
+.income-sidebar-item:hover:not(:disabled) {
+  background: #e7f7ed;
+  color: #138b4c;
+  transform: translateY(-2px);
+}
+
+.income-sidebar-item.active {
+  background: #12905a;
+  color: white;
+  box-shadow: 0 10px 25px rgba(18, 144, 90, .22);
+}
+
+.income-sidebar-item:disabled {
+  cursor: not-allowed;
+  opacity: .72;
+}
+
+.income-sidebar-item.logout-item:hover {
+  background: #ffe9e7;
+  color: #c7443c;
+}
+
+.income-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.income-header {
+  height: 82px;
+  background: rgba(250, 251, 250, .96);
+  border-bottom: 1px solid #e4ebe7;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 0 38px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(12px);
+}
+
+.income-header-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 210px;
+}
+
+.income-header-brand img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
+.income-header-brand h2 {
+  margin: 0;
+  font-size: 19px;
+  color: #126f42;
+}
+
+.income-header-brand p {
+  margin: 2px 0 0;
+  font-size: 10px;
+  color: #7b8781;
+}
+
+.income-top-navigation {
+  display: flex;
+  gap: 4px;
+  background: #f0f3f1;
+  padding: 5px;
+  border-radius: 25px;
+}
+
+.income-top-navigation button {
+  border: none;
+  background: transparent;
+  padding: 10px 16px;
+  border-radius: 20px;
+  color: #66706b;
+  cursor: pointer;
+  font-size: 12px;
+  transition: .25s ease;
+}
+
+.income-top-navigation button:hover:not(:disabled) {
+  background: #e1f3e9;
+  color: #126f42;
+}
+
+.income-top-navigation button.nav-active {
+  background: white;
+  color: #126f42;
+  box-shadow: 0 3px 12px rgba(25, 75, 52, .08);
+}
+
+.income-top-navigation button:disabled {
+  cursor: not-allowed;
+  opacity: .6;
+}
+
+.income-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 150px;
+  justify-content: flex-end;
+}
+
+.income-icon-button,
+.income-mobile-menu {
+  border: none;
+  background: #f1f4f2;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform .25s ease, background .25s ease;
+}
+
+.income-icon-button:hover,
+.income-mobile-menu:hover {
+  background: #e2f3e9;
+  transform: translateY(-2px);
+}
+
+.income-profile-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #1b7b57;
+  color: white;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  box-shadow: 0 8px 20px rgba(27, 123, 87, .18);
+}
+
+.income-mobile-menu {
+  display: none;
+  font-size: 20px;
+}
+
+.income-content {
+  padding: 42px 42px 60px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.income-page-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 28px;
+  margin-bottom: 25px;
+}
+
+.income-eyebrow,
+.income-section-label {
+  color: #1b7b57;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  margin: 0 0 7px;
+}
+
+.income-page-heading h1 {
+  margin: 0;
+  color: #17201c;
+  font-size: clamp(27px, 3vw, 38px);
+  letter-spacing: -.8px;
+}
+
+.income-page-heading p:not(.income-eyebrow) {
+  margin: 8px 0 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.add-income-button {
+  border: none;
+  background: #126f42;
+  color: white;
+  padding: 15px 20px;
+  min-height: 50px;
+  border-radius: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  box-shadow: 0 12px 28px rgba(18, 111, 66, .2);
+  transition: transform .3s ease, box-shadow .3s ease, background .3s ease;
+}
+
+.add-income-button span {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.add-income-button:hover {
+  transform: translateY(-3px) scale(1.02);
+  background: #0e6138;
+  box-shadow: 0 16px 35px rgba(18, 111, 66, .28);
+}
+
+.income-toast {
+  border-radius: 13px;
+  padding: 11px 15px;
+  margin: 0 0 18px;
+  font-size: 13px;
+  font-weight: 700;
+  animation: toastIn .35s ease both;
+}
+
+.income-toast.success {
+  background: #e7f7ed;
+  color: #126f42;
+  border: 1px solid #cdeedb;
+}
+
+.income-toast.error {
+  background: #fff0ef;
+  color: #b43e35;
+  border: 1px solid #f6d1ce;
+}
+
+.income-summary-card,
+.income-card,
+.income-loading-card {
+  background: rgba(255, 255, 255, .94);
+  border: 1px solid #e9efec;
+  border-radius: 24px;
+  box-shadow: 0 10px 35px rgba(32, 70, 52, .055);
+}
+
+.income-summary-card {
+  min-height: 145px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 27px 30px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.income-summary-card::after {
+  content: "";
+  position: absolute;
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  right: -80px;
+  top: -120px;
+  background: #e7f7ed;
+}
+
+.summary-card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  background: #d1fae5;
+  color: #126f42;
+  display: grid;
+  place-items: center;
+  font-size: 27px;
+  flex: 0 0 auto;
+}
+
+.summary-card-copy {
+  display: flex;
+  flex-direction: column;
+}
+
+.summary-card-copy>span {
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+}
+
+.summary-card-copy strong {
+  color: #17201c;
+  font-size: clamp(28px, 3vw, 38px);
+  margin: 4px 0 2px;
+}
+
+.summary-card-copy p {
+  margin: 0;
+  color: #7b8781;
+  font-weight: 800;
+  font-size: 12px;
+}
+
+.summary-trend {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-right: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.summary-trend>span {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  font-size: 21px;
+}
+
+.summary-trend.positive>span {
+  background: #d1fae5;
+  color: #087443;
+}
+
+.summary-trend.negative>span {
+  background: #ffe5e3;
+  color: #b43e35;
+}
+
+.summary-trend div {
+  display: flex;
+  flex-direction: column;
+}
+
+.summary-trend strong {
+  font-size: 15px;
+}
+
+.summary-trend.positive strong {
+  color: #087443;
+}
+
+.summary-trend.negative strong {
+  color: #b43e35;
+}
+
+.summary-trend small {
+  color: #7b8781;
+  margin-top: 2px;
+}
+
+.income-analytics-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(350px, .9fr);
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.income-card {
+  padding: 25px;
+  min-width: 0;
+}
+
+.animated-card {
+  animation: incomeCardIn .65s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+.income-card:nth-child(2) {
+  animation-delay: .08s;
+}
+
+.income-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 17px 40px rgba(32, 70, 52, .09);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.income-card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.income-card-header h2 {
+  margin: 0;
+  font-size: 19px;
+  color: #17201c;
+}
+
+.income-card-header p {
+  margin: 5px 0 0;
+  color: #7b8781;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.chart-badge {
+  background: #e6f4ed;
+  color: #126f42;
+  padding: 8px 11px;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 11px;
+}
+
+.income-line-chart {
+  display: grid;
+  grid-template-columns: 55px 1fr;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.chart-scale {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 250px;
+  color: #94a3b8;
+  font-size: 9px;
+  text-align: right;
+  padding: 2px 0 0;
+}
+
+.chart-svg-wrap {
+  min-width: 0;
+}
+
+.chart-svg-wrap svg {
+  width: 100%;
+  height: 250px;
+  overflow: visible;
+}
+
+.chart-grid {
+  stroke: #e7eeeb;
+  stroke-width: 1;
+  stroke-dasharray: 3 4;
+}
+
+.income-line-path {
+  fill: none;
+  stroke: #1b7b57;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 6px 8px rgba(27, 123, 87, .14));
+  animation: lineDraw 1.1s ease-out both;
+}
+
+.income-chart-point {
+  fill: #fff;
+  stroke: #1b7b57;
+  stroke-width: 4;
+  cursor: pointer;
+  transition: r .2s ease;
+}
+
+.chart-tooltip rect {
+  fill: #173d2d;
+  filter: drop-shadow(0 7px 12px rgba(16, 46, 34, .22));
+}
+
+.chart-tooltip text {
+  fill: #d8f8e6;
+  font-size: 10px;
+  font-weight: 800;
+  pointer-events: none;
+}
+
+.chart-tooltip .tooltip-value {
+  fill: #fff;
+  font-size: 11px;
+}
+
+.chart-months {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  padding: 8px 8px 0;
+  color: #94a3b8;
+  font-size: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.expand-chart-button {
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 10px;
+  background: #eef5f1;
+  color: #126f42;
+  cursor: pointer;
+  transition: transform .25s ease, background .25s ease;
+}
+
+.expand-chart-button:hover {
+  background: #dff3e7;
+  transform: rotate(8deg) scale(1.06);
+}
+
+.donut-chart-button {
+  border: none;
+  background: transparent;
+  width: 100%;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  padding: 16px 0 13px;
+}
+
+.donut-chart {
+  width: 184px;
+  height: 184px;
+  border-radius: 50%;
+  position: relative;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 14px 32px rgba(37, 83, 61, .12);
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.donut-chart::after {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, .75);
+}
+
+.donut-chart-button:hover .donut-chart {
+  transform: scale(1.045) rotate(2deg);
+  box-shadow: 0 18px 38px rgba(37, 83, 61, .18);
+}
+
+.donut-hole {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  background: #fff;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 0 1px #edf2ef;
+}
+
+.donut-hole strong {
+  color: #17201c;
+  font-size: 16px;
+}
+
+.donut-hole span {
+  color: #7b8781;
+  font-size: 10px;
+  margin-top: 3px;
+}
+
+.category-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.category-row {
+  width: 100%;
+  border: none;
+  background: transparent;
+  display: grid;
+  grid-template-columns: 31px minmax(0, 1fr) 45px auto;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 7px;
+  border-radius: 12px;
+  text-align: left;
+  cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
+}
+
+.category-row:hover,
+.category-row.active {
+  background: #f1f7f4;
+  transform: translateX(2px);
+}
+
+.category-icon {
+  width: 31px;
+  height: 31px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  flex: 0 0 auto;
+}
+
+.category-icon.salary {
+  background: #d1fae5;
+  color: #0c7444;
+}
+
+.category-icon.freelance {
+  background: #fff4cf;
+  color: #9b7410;
+}
+
+.category-icon.investment {
+  background: #dff8fb;
+  color: #258b98;
+}
+
+.category-icon.business {
+  background: #e7f1ff;
+  color: #426b9d;
+}
+
+.category-icon.bonus {
+  background: #f4e8ff;
+  color: #8053a6;
+}
+
+.category-icon.rental {
+  background: #f3e9dc;
+  color: #8c633d;
+}
+
+.category-icon.interest {
+  background: #e6f4ed;
+  color: #126f42;
+}
+
+.category-icon.gift {
+  background: #ffe9ef;
+  color: #a74c69;
+}
+
+.category-icon.other {
+  background: #eef2f1;
+  color: #64748b;
+}
+
+.category-name {
+  font-size: 12px;
+  font-weight: 800;
+  color: #334155;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.category-percent {
+  color: #7b8781;
+  font-size: 10px;
+  text-align: right;
+}
+
+.category-row strong {
+  color: #126f42;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.empty-category {
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.empty-category span {
+  color: #1b7b57;
+  font-size: 22px;
+}
+
+.empty-category p {
+  margin: 0;
+}
+
+.transactions-income-card {
+  overflow: hidden;
+}
+
+.transactions-header {
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.view-all-income {
+  border: none;
+  background: #e7f7ed;
+  color: #126f42;
+  border-radius: 11px;
+  padding: 10px 13px;
+  font-weight: 800;
+  font-size: 11px;
+  cursor: pointer;
+  transition: transform .2s ease, background .2s ease;
+}
+
+.view-all-income:hover {
+  transform: translateY(-2px);
+  background: #d1fae5;
+}
+
+.income-table-wrap {
+  overflow-x: auto;
+}
+
+.income-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
+}
+
+.income-table th {
+  text-align: left;
+  padding: 12px 10px;
+  color: #94a3b8;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: .9px;
+  border-bottom: 1px solid #edf2ef;
+}
+
+.income-table td {
+  padding: 15px 10px;
+  border-bottom: 1px solid #f0f3f1;
+  color: #334155;
+  font-size: 12px;
+}
+
+.income-table tbody tr {
+  transition: background .2s ease, transform .2s ease;
+}
+
+.income-table tbody tr:hover {
+  background: #f8fbf9;
+}
+
+.income-date-cell {
+  font-weight: 800;
+  color: #17201c !important;
+  white-space: nowrap;
+}
+
+.table-category {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 800;
+}
+
+.table-category .category-icon {
+  width: 29px;
+  height: 29px;
+}
+
+.income-source {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.income-source strong {
+  color: #334155;
+}
+
+.income-source span {
+  color: #94a3b8;
+  max-width: 420px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.income-amount-cell {
+  color: #087443 !important;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.income-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.income-actions button {
+  width: 31px;
+  height: 31px;
+  border: none;
+  border-radius: 9px;
+  background: #f1f5f3;
+  color: #5d6c65;
+  cursor: pointer;
+  transition: transform .2s ease, background .2s ease, color .2s ease;
+}
+
+.income-actions button:hover {
+  transform: translateY(-2px);
+  background: #dff3e7;
+  color: #126f42;
+}
+
+.income-actions .delete-action:hover {
+  background: #ffe9e7;
+  color: #c7443c;
+}
+
+.empty-income-table {
+  padding: 45px 20px;
+  text-align: center;
+}
+
+.empty-income-table>div {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  margin: 0 auto 12px;
+  background: #e6f4ed;
+  color: #126f42;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+}
+
+.empty-income-table h3 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.empty-income-table p {
+  margin: 6px 0 0;
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.income-loading-card {
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.income-spinner {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 4px solid #dcebe3;
+  border-top-color: #1b7b57;
+  animation: spin .8s linear infinite;
+  margin-bottom: 15px;
+}
+
+.income-loading-card h3 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.income-loading-card p {
+  margin: 6px 0 0;
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.income-modal-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(32, 103, 153, .24);
+  backdrop-filter: blur(7px);
+  animation: blueReveal .35s ease both;
+}
+
+.income-form-window,
+.category-details-window,
+.delete-confirm-window {
+  width: min(720px, 100%);
+  max-height: calc(100vh - 48px);
+  overflow: auto;
+  background: #fff;
+  border: 1px solid rgba(255, 255, 255, .8);
+  border-radius: 28px;
+  box-shadow: 0 30px 90px rgba(19, 57, 84, .25);
+  animation: formExpand .48s cubic-bezier(.17, .89, .32, 1.22) both;
+}
+
+.income-form-header {
+  padding: 27px 30px 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  border-bottom: 1px solid #eef3f0;
+}
+
+.income-form-header h2 {
+  margin: 0;
+  color: #17201c;
+  font-size: 24px;
+}
+
+.income-form-header p {
+  margin: 5px 0 0;
+  color: #7b8781;
+  font-size: 12px;
+}
+
+.income-close-button {
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  background: #f1f5f3;
+  color: #52615a;
+  font-size: 25px;
+  cursor: pointer;
+  transition: transform .2s ease, background .2s ease;
+}
+
+.income-close-button:hover {
+  background: #e7f7ed;
+  color: #126f42;
+  transform: rotate(90deg);
+}
+
+.income-form {
+  padding: 26px 30px 30px;
+}
+
+.income-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.income-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.income-form label>span {
+  color: #334155;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .7px;
+}
+
+.income-form input,
+.income-form select,
+.income-form textarea {
+  width: 100%;
+  border: 1px solid #dfe8e3;
+  background: #fbfdfc;
+  color: #17201c;
+  border-radius: 13px;
+  padding: 13px 14px;
+  outline: none;
+  transition: border .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.income-form input:focus,
+.income-form select:focus,
+.income-form textarea:focus {
+  border-color: #54b88a;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(27, 123, 87, .09);
+}
+
+.income-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.full-width-field {
+  grid-column: 1 / -1;
+}
+
+.amount-input-wrap {
+  position: relative;
+}
+
+.amount-input-wrap b {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #126f42;
+}
+
+.amount-input-wrap input {
+  padding-left: 31px;
+}
+
+.income-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 23px;
+}
+
+.secondary-income-button,
+.primary-income-button,
+.danger-income-button {
+  border: none;
+  border-radius: 12px;
+  padding: 12px 18px;
+  cursor: pointer;
+  font-weight: 800;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.secondary-income-button {
+  background: #edf2ef;
+  color: #52615a;
+}
+
+.primary-income-button {
+  background: #126f42;
+  color: white;
+  box-shadow: 0 9px 22px rgba(18, 111, 66, .18);
+}
+
+.danger-income-button {
+  background: #c7443c;
+  color: white;
+}
+
+.secondary-income-button:hover,
+.primary-income-button:hover,
+.danger-income-button:hover {
+  transform: translateY(-2px);
+}
+
+.primary-income-button:hover {
+  background: #0e6138;
+}
+
+.danger-income-button:hover {
+  background: #ae3730;
+}
+
+.secondary-income-button:disabled,
+.primary-income-button:disabled,
+.danger-income-button:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.category-modal-layer {
+  background: rgba(31, 107, 151, .3);
+}
+
+.category-details-window {
+  width: min(850px, 100%);
+}
+
+.category-details-body {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 28px;
+  padding: 30px;
+  align-items: center;
+}
+
+.category-large-donut-wrap {
+  display: grid;
+  place-items: center;
+}
+
+.donut-chart.large {
+  width: 260px;
+  height: 260px;
+}
+
+.donut-chart.large .donut-hole {
+  width: 155px;
+  height: 155px;
+}
+
+.donut-chart.large .donut-hole strong {
+  font-size: 20px;
+}
+
+.category-detail-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.category-detail-row {
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid #edf2ef;
+  border-radius: 14px;
+  transition: transform .2s ease, background .2s ease;
+}
+
+.category-detail-row:hover {
+  transform: translateX(4px);
+  background: #f8fbf9;
+}
+
+.category-detail-row .category-icon {
+  width: 38px;
+  height: 38px;
+}
+
+.category-detail-row div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.category-detail-row strong {
+  color: #334155;
+}
+
+.category-detail-row small {
+  color: #94a3b8;
+}
+
+.category-detail-row>b {
+  color: #126f42;
+  white-space: nowrap;
+}
+
+.delete-layer {
+  background: rgba(54, 88, 110, .24);
+}
+
+.delete-confirm-window {
+  width: min(430px, 100%);
+  padding: 30px;
+  text-align: center;
+}
+
+.delete-icon {
+  width: 55px;
+  height: 55px;
+  margin: 0 auto 14px;
+  border-radius: 18px;
+  background: #ffe9e7;
+  color: #c7443c;
+  display: grid;
+  place-items: center;
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.delete-confirm-window h2 {
+  margin: 7px 0 0;
+}
+
+.delete-confirm-window p {
+  color: #7b8781;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.delete-confirm-window .income-form-actions {
+  justify-content: center;
+}
+
+.income-sidebar-backdrop {
+  display: none;
+}
+
+@keyframes incomeCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes lineDraw {
+  from {
+    stroke-dasharray: 0 1000;
+    opacity: .2;
+  }
+
+  to {
+    stroke-dasharray: 1000 0;
+    opacity: 1;
+  }
+}
+
+@keyframes formExpand {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(.55);
+    border-radius: 18px;
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    border-radius: 28px;
+  }
+}
+
+@keyframes blueReveal {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 1150px) {
+  .income-content {
+    padding: 34px 28px 50px;
+  }
+
+  .income-header {
+    padding: 0 28px;
+  }
+
+  .income-header-brand {
+    min-width: auto;
+  }
+
+  .income-top-navigation button {
+    padding: 9px 11px;
+  }
+
+  .income-analytics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .analytics-donut-card {
+    display: grid;
+    grid-template-columns: 1fr 240px;
+    column-gap: 20px;
+  }
+
+  .analytics-donut-card .income-card-header {
+    grid-column: 1 / -1;
+  }
+
+  .analytics-donut-card .donut-chart-button {
+    grid-row: 2;
+  }
+
+  .analytics-donut-card .category-legend {
+    grid-row: 2;
+    align-self: center;
+  }
+}
+
+@media (max-width: 850px) {
+  .income-sidebar {
+    position: fixed;
+    left: -110px;
+    transition: left .3s ease;
+    box-shadow: 15px 0 40px rgba(20, 57, 43, .08);
+  }
+
+  .income-sidebar.open {
+    left: 0;
+  }
+
+  .income-sidebar-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    border: none;
+    background: rgba(21, 39, 31, .2);
+    z-index: 70;
+  }
+
+  .income-mobile-menu {
+    display: block;
+  }
+
+  .income-header {
+    padding: 0 18px;
+    gap: 12px;
+  }
+
+  .income-header-brand {
+    margin-right: auto;
+  }
+
+  .income-header-brand p,
+  .income-top-navigation,
+  .income-icon-button {
+    display: none;
+  }
+
+  .income-header-actions {
+    min-width: auto;
+  }
+
+  .income-content {
+    padding: 30px 18px 45px;
+  }
+
+  .income-page-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .add-income-button {
+    align-self: flex-start;
+  }
+
+  .analytics-donut-card {
+    display: block;
+  }
+
+  .category-details-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .income-summary-card {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .summary-trend {
+    width: 100%;
+    margin-left: 76px;
+    padding-right: 0;
+  }
+
+  .income-card {
+    padding: 19px;
+    border-radius: 20px;
+  }
+
+  .income-line-chart {
+    grid-template-columns: 43px 1fr;
+  }
+
+  .chart-scale {
+    font-size: 8px;
+  }
+
+  .income-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .full-width-field {
+    grid-column: auto;
+  }
+
+  .income-form,
+  .income-form-header,
+  .category-details-body {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .income-form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .secondary-income-button,
+  .primary-income-button,
+  .danger-income-button {
+    width: 100%;
+  }
+
+  .donut-chart.large {
+    width: 210px;
+    height: 210px;
+  }
+}
+
+
+
+/* =========================================================
+   ENHANCED SMOOTH ANIMATIONS
+   Existing class names are NOT changed.
+   ========================================================= */
+
+
+/* =========================================================
+   GLOBAL SMOOTHNESS
+   ========================================================= */
+
+.income-page *,
+.income-page *::before,
+.income-page *::after {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.income-page {
+  animation: pageFadeIn .65s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+
+/* =========================================================
+   SIDEBAR ANIMATIONS
+   ========================================================= */
+
+.income-sidebar {
+  animation: sidebarReveal .7s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.income-sidebar-logo {
+  animation: logoReveal .8s cubic-bezier(.17, .89, .32, 1.28) .1s both;
+}
+
+.income-sidebar-item {
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+}
+
+/* Soft light sweep on sidebar item */
+
+.income-sidebar-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg,
+      transparent 20%,
+      rgba(255, 255, 255, .35) 50%,
+      transparent 80%);
+  transform: translateX(-120%);
+  transition: transform .55s cubic-bezier(.22, 1, .36, 1);
+  pointer-events: none;
+}
+
+.income-sidebar-item:hover::before {
+  transform: translateX(120%);
+}
+
+.income-sidebar-item:hover:not(:disabled) {
+  transform: translateY(-4px) scale(1.035);
+  box-shadow: 0 8px 20px rgba(18, 144, 90, .08);
+}
+
+.income-sidebar-item.active {
+  animation: activeSidebarPulse 2.8s ease-in-out infinite;
+}
+
+.income-sidebar-item span {
+  transition: transform .3s cubic-bezier(.22, 1, .36, 1);
+}
+
+.income-sidebar-item:hover span {
+  transform: translateY(-2px) scale(1.12);
+}
+
+
+/* =========================================================
+   HEADER ANIMATION
+   ========================================================= */
+
+.income-header {
+  animation: headerReveal .65s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.income-header-brand {
+  animation: brandSlideIn .7s cubic-bezier(.22, 1, .36, 1) .08s both;
+}
+
+.income-header-brand img {
+  transition:
+    transform .4s cubic-bezier(.22, 1, .36, 1),
+    filter .4s ease;
+}
+
+.income-header-brand:hover img {
+  transform: rotate(-5deg) scale(1.08);
+  filter: drop-shadow(0 6px 8px rgba(18, 111, 66, .18));
+}
+
+.income-top-navigation {
+  animation: navDropIn .7s cubic-bezier(.22, 1, .36, 1) .15s both;
+}
+
+.income-top-navigation button {
+  position: relative;
+  transition:
+    transform .25s cubic-bezier(.22, 1, .36, 1),
+    background .25s ease,
+    color .25s ease,
+    box-shadow .25s ease;
+}
+
+.income-top-navigation button:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.income-top-navigation button.nav-active {
+  animation: navActiveIn .4s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.income-header-actions {
+  animation: actionsSlideIn .7s cubic-bezier(.22, 1, .36, 1) .2s both;
+}
+
+.income-icon-button,
+.income-mobile-menu {
+  will-change: transform;
+}
+
+.income-icon-button:active,
+.income-mobile-menu:active {
+  transform: scale(.9);
+}
+
+.income-profile-circle {
+  transition:
+    transform .35s cubic-bezier(.22, 1, .36, 1),
+    box-shadow .35s ease;
+}
+
+.income-profile-circle:hover {
+  transform: translateY(-3px) scale(1.06);
+  box-shadow: 0 12px 26px rgba(27, 123, 87, .26);
+}
+
+
+/* =========================================================
+   MAIN CONTENT REVEAL
+   ========================================================= */
+
+.income-content {
+  animation: contentReveal .8s cubic-bezier(.22, 1, .36, 1) .12s both;
+}
+
+.income-page-heading {
+  animation: headingReveal .8s cubic-bezier(.22, 1, .36, 1) .18s both;
+}
+
+.income-page-heading h1 {
+  animation: titleReveal .8s cubic-bezier(.22, 1, .36, 1) .25s both;
+}
+
+.income-page-heading p:not(.income-eyebrow) {
+  animation: subtitleReveal .7s ease .35s both;
+}
+
+
+/* =========================================================
+   ADD INCOME BUTTON
+   ========================================================= */
+
+.add-income-button {
+  position: relative;
+  overflow: hidden;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.add-income-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(110deg,
+      transparent,
+      rgba(255, 255, 255, .28),
+      transparent);
+  transform: skewX(-18deg);
+  transition: left .65s cubic-bezier(.22, 1, .36, 1);
+}
+
+.add-income-button:hover::before {
+  left: 150%;
+}
+
+.add-income-button:hover {
+  transform: translateY(-4px) scale(1.025);
+}
+
+.add-income-button:active {
+  transform: translateY(-1px) scale(.96);
+  transition-duration: .1s;
+}
+
+.add-income-button span {
+  transition: transform .35s cubic-bezier(.17, .89, .32, 1.28);
+}
+
+.add-income-button:hover span {
+  transform: rotate(90deg) scale(1.12);
+}
+
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+.income-toast {
+  animation:
+    toastIn .5s cubic-bezier(.22, 1, .36, 1) both,
+    toastFloat 3s ease-in-out .5s infinite;
+}
+
+
+/* =========================================================
+   SUMMARY CARD
+   ========================================================= */
+
+.income-summary-card {
+  animation:
+    summaryReveal .8s cubic-bezier(.22, 1, .36, 1) .25s both;
+  transition:
+    transform .35s cubic-bezier(.22, 1, .36, 1),
+    box-shadow .35s ease;
+  will-change: transform;
+}
+
+.income-summary-card:hover {
+  transform: translateY(-5px) scale(1.008);
+  box-shadow: 0 18px 45px rgba(32, 70, 52, .10);
+}
+
+.income-summary-card::after {
+  animation: summaryOrb 8s ease-in-out infinite;
+}
+
+.summary-card-icon {
+  transition:
+    transform .4s cubic-bezier(.17, .89, .32, 1.28),
+    box-shadow .35s ease;
+}
+
+.income-summary-card:hover .summary-card-icon {
+  transform: rotate(-5deg) scale(1.08);
+  box-shadow: 0 8px 20px rgba(18, 111, 66, .12);
+}
+
+.summary-card-copy strong {
+  animation: amountReveal .8s cubic-bezier(.17, .89, .32, 1.28) .45s both;
+}
+
+.summary-trend {
+  animation: trendReveal .7s cubic-bezier(.22, 1, .36, 1) .55s both;
+}
+
+.summary-trend>span {
+  transition:
+    transform .35s cubic-bezier(.17, .89, .32, 1.28),
+    box-shadow .3s ease;
+}
+
+.income-summary-card:hover .summary-trend>span {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 8px 18px rgba(18, 111, 66, .10);
+}
+
+
+/* =========================================================
+   ANALYTICS CARDS
+   ========================================================= */
+
+.income-analytics-grid {
+  perspective: 1200px;
+}
+
+.income-card {
+  position: relative;
+  transition:
+    transform .4s cubic-bezier(.22, 1, .36, 1),
+    box-shadow .4s ease,
+    border-color .3s ease;
+  will-change: transform;
+}
+
+.income-card:hover {
+  transform: translateY(-7px) scale(1.008);
+  box-shadow: 0 22px 48px rgba(32, 70, 52, .105);
+  border-color: #dce9e2;
+}
+
+/* Stagger the cards */
+
+.income-analytics-grid>.income-card:nth-child(1) {
+  animation:
+    incomeCardIn .75s cubic-bezier(.22, 1, .36, 1) .35s both;
+}
+
+.income-analytics-grid>.income-card:nth-child(2) {
+  animation:
+    incomeCardIn .75s cubic-bezier(.22, 1, .36, 1) .48s both;
+}
+
+.transactions-income-card {
+  animation:
+    incomeCardIn .75s cubic-bezier(.22, 1, .36, 1) .58s both;
+}
+
+
+/* =========================================================
+   CARD HEADER
+   ========================================================= */
+
+.income-card-header h2 {
+  transition:
+    color .25s ease,
+    transform .3s ease;
+}
+
+.income-card:hover .income-card-header h2 {
+  color: #126f42;
+  transform: translateX(2px);
+}
+
+.chart-badge {
+  transition:
+    transform .3s cubic-bezier(.22, 1, .36, 1),
+    box-shadow .3s ease;
+}
+
+.income-card:hover .chart-badge {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 6px 14px rgba(18, 111, 66, .10);
+}
+
+
+/* =========================================================
+   LINE GRAPH
+   LEFT → RIGHT ENTRY
+   ========================================================= */
+
+.income-line-chart {
+  animation: chartContainerReveal .7s cubic-bezier(.22, 1, .36, 1) .55s both;
+}
+
+.chart-scale {
+  animation: scaleReveal .7s ease .7s both;
+}
+
+.chart-svg-wrap {
+  overflow: visible;
+}
+
+/*
+   The graph line is initially hidden and then progressively
+   drawn from left to right.
+*/
+
+.income-line-path {
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
+  animation:
+    lineDrawLeftToRight 1.8s cubic-bezier(.22, 1, .36, 1) .65s forwards;
+}
+
+/* Graph points */
+
+.income-chart-point {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: graphPointReveal .45s cubic-bezier(.17, .89, .32, 1.28) forwards;
+}
+
+/*
+   Sequential point appearance.
+   Works with the existing SVG circles.
+*/
+
+.income-chart-point:nth-of-type(1) {
+  animation-delay: 1.05s;
+}
+
+.income-chart-point:nth-of-type(2) {
+  animation-delay: 1.22s;
+}
+
+.income-chart-point:nth-of-type(3) {
+  animation-delay: 1.39s;
+}
+
+.income-chart-point:nth-of-type(4) {
+  animation-delay: 1.56s;
+}
+
+.income-chart-point:nth-of-type(5) {
+  animation-delay: 1.73s;
+}
+
+.income-chart-point:nth-of-type(6) {
+  animation-delay: 1.90s;
+}
+
+.income-chart-point:hover {
+  r: 7;
+}
+
+.chart-months {
+  animation: monthsReveal .7s ease 1.15s both;
+}
+
+
+/* =========================================================
+   GRAPH TOOLTIP
+   ========================================================= */
+
+.chart-tooltip {
+  animation: tooltipPop .3s cubic-bezier(.17, .89, .32, 1.28) both;
+}
+
+.chart-tooltip rect {
+  animation: tooltipGlow 2.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   EXPAND CHART BUTTON
+   ========================================================= */
+
+.expand-chart-button {
+  transition:
+    transform .35s cubic-bezier(.17, .89, .32, 1.28),
+    background .25s ease,
+    box-shadow .25s ease;
+}
+
+.expand-chart-button:hover {
+  transform: rotate(8deg) scale(1.1);
+  box-shadow: 0 7px 16px rgba(18, 111, 66, .12);
+}
+
+.expand-chart-button:active {
+  transform: rotate(8deg) scale(.9);
+}
+
+
+/* =========================================================
+   DONUT CHART
+   ========================================================= */
+
+.donut-chart-button {
+  animation: donutContainerReveal .8s cubic-bezier(.22, 1, .36, 1) .6s both;
+}
+
+.donut-chart {
+  animation:
+    donutReveal 1s cubic-bezier(.17, .89, .32, 1.28) .65s both;
+}
+
+.donut-hole {
+  animation:
+    donutHoleReveal .7s cubic-bezier(.17, .89, .32, 1.28) .95s both;
+}
+
+.donut-chart-button:hover .donut-chart {
+  transform: scale(1.055) rotate(3deg);
+}
+
+.donut-hole strong {
+  animation: donutTextReveal .6s ease 1.1s both;
+}
+
+
+/* =========================================================
+   CATEGORY LEGEND
+   ========================================================= */
+
+.category-legend {
+  animation: legendReveal .7s cubic-bezier(.22, 1, .36, 1) .7s both;
+}
+
+.category-row {
+  opacity: 0;
+  animation: categoryRowReveal .45s cubic-bezier(.22, 1, .36, 1) forwards;
+}
+
+.category-row:nth-child(1) {
+  animation-delay: .72s;
+}
+
+.category-row:nth-child(2) {
+  animation-delay: .79s;
+}
+
+.category-row:nth-child(3) {
+  animation-delay: .86s;
+}
+
+.category-row:nth-child(4) {
+  animation-delay: .93s;
+}
+
+.category-row:nth-child(5) {
+  animation-delay: 1s;
+}
+
+.category-row:nth-child(6) {
+  animation-delay: 1.07s;
+}
+
+.category-row:nth-child(7) {
+  animation-delay: 1.14s;
+}
+
+.category-row:nth-child(8) {
+  animation-delay: 1.21s;
+}
+
+.category-row:nth-child(9) {
+  animation-delay: 1.28s;
+}
+
+.category-row:hover,
+.category-row.active {
+  transform: translateX(5px) scale(1.01);
+}
+
+.category-icon {
+  transition:
+    transform .3s cubic-bezier(.17, .89, .32, 1.28),
+    box-shadow .3s ease;
+}
+
+.category-row:hover .category-icon {
+  transform: scale(1.12) rotate(-5deg);
+  box-shadow: 0 6px 13px rgba(30, 70, 50, .10);
+}
+
+
+/* =========================================================
+   TRANSACTIONS TABLE
+   ========================================================= */
+
+.transactions-income-card {
+  transition:
+    transform .4s cubic-bezier(.22, 1, .36, 1),
+    box-shadow .4s ease;
+}
+
+.transactions-income-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 45px rgba(32, 70, 52, .09);
+}
+
+.income-table tbody tr {
+  opacity: 0;
+  animation: tableRowReveal .45s cubic-bezier(.22, 1, .36, 1) forwards;
+}
+
+.income-table tbody tr:nth-child(1) {
+  animation-delay: .65s;
+}
+
+.income-table tbody tr:nth-child(2) {
+  animation-delay: .72s;
+}
+
+.income-table tbody tr:nth-child(3) {
+  animation-delay: .79s;
+}
+
+.income-table tbody tr:nth-child(4) {
+  animation-delay: .86s;
+}
+
+.income-table tbody tr:nth-child(5) {
+  animation-delay: .93s;
+}
+
+.income-table tbody tr:hover {
+  transform: translateX(3px);
+}
+
+.income-table td {
+  transition:
+    color .2s ease,
+    background .2s ease;
+}
+
+.income-date-cell {
+  transition: color .2s ease;
+}
+
+.income-table tbody tr:hover .income-date-cell {
+  color: #126f42 !important;
+}
+
+.income-amount-cell {
+  transition:
+    transform .25s ease,
+    color .25s ease;
+}
+
+.income-table tbody tr:hover .income-amount-cell {
+  transform: translateX(-3px);
+}
+
+
+/* =========================================================
+   TABLE ACTION BUTTONS
+   ========================================================= */
+
+.income-actions button {
+  transition:
+    transform .25s cubic-bezier(.17, .89, .32, 1.28),
+    background .25s ease,
+    color .25s ease,
+    box-shadow .25s ease;
+}
+
+.income-actions button:hover {
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 6px 13px rgba(18, 111, 66, .10);
+}
+
+.income-actions button:active {
+  transform: scale(.88);
+}
+
+
+/* =========================================================
+   VIEW ALL BUTTON
+   ========================================================= */
+
+.view-all-income {
+  transition:
+    transform .3s cubic-bezier(.22, 1, .36, 1),
+    background .25s ease,
+    box-shadow .25s ease;
+}
+
+.view-all-income:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 7px 16px rgba(18, 111, 66, .10);
+}
+
+.view-all-income:active {
+  transform: scale(.95);
+}
+
+
+/* =========================================================
+   MODAL BACKDROP
+   ========================================================= */
+
+.income-modal-layer {
+  animation:
+    modalBackdropIn .45s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+
+/* =========================================================
+   ADD INCOME FORM MODAL
+   ========================================================= */
+
+.income-form-window {
+  transform-origin: center center;
+  animation:
+    formExpandSmooth .65s cubic-bezier(.17, .89, .32, 1.22) both;
+}
+
+.income-form-header {
+  animation: formHeaderReveal .5s ease .2s both;
+}
+
+.income-form {
+  animation: formBodyReveal .55s cubic-bezier(.22, 1, .36, 1) .25s both;
+}
+
+
+/* =========================================================
+   FORM FIELDS
+   ========================================================= */
+
+.income-form label {
+  animation: fieldReveal .45s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.income-form-grid label:nth-child(1) {
+  animation-delay: .30s;
+}
+
+.income-form-grid label:nth-child(2) {
+  animation-delay: .36s;
+}
+
+.income-form-grid label:nth-child(3) {
+  animation-delay: .42s;
+}
+
+.income-form-grid label:nth-child(4) {
+  animation-delay: .48s;
+}
+
+.income-form-grid label:nth-child(5) {
+  animation-delay: .54s;
+}
+
+.income-form-grid label:nth-child(6) {
+  animation-delay: .60s;
+}
+
+.income-form input,
+.income-form select,
+.income-form textarea {
+  transition:
+    border-color .25s ease,
+    box-shadow .3s cubic-bezier(.22, 1, .36, 1),
+    background .25s ease,
+    transform .25s cubic-bezier(.22, 1, .36, 1);
+}
+
+.income-form input:hover,
+.income-form select:hover,
+.income-form textarea:hover {
+  border-color: #b9d9c8;
+  transform: translateY(-1px);
+}
+
+.income-form input:focus,
+.income-form select:focus,
+.income-form textarea:focus {
+  transform: translateY(-2px) scale(1.005);
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+   ========================================================= */
+
+.income-close-button {
+  transition:
+    transform .4s cubic-bezier(.17, .89, .32, 1.28),
+    background .25s ease,
+    color .25s ease,
+    box-shadow .25s ease;
+}
+
+.income-close-button:hover {
+  transform: rotate(90deg) scale(1.08);
+  box-shadow: 0 6px 15px rgba(18, 111, 66, .10);
+}
+
+.income-close-button:active {
+  transform: rotate(90deg) scale(.88);
+}
+
+
+/* =========================================================
+   FORM ACTION BUTTONS
+   ========================================================= */
+
+.secondary-income-button,
+.primary-income-button,
+.danger-income-button {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform .3s cubic-bezier(.17, .89, .32, 1.28),
+    box-shadow .3s ease,
+    background .25s ease;
+}
+
+.secondary-income-button::before,
+.primary-income-button::before,
+.danger-income-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg,
+      transparent 20%,
+      rgba(255, 255, 255, .20) 50%,
+      transparent 80%);
+  transform: translateX(-120%);
+  transition: transform .55s ease;
+}
+
+.secondary-income-button:hover::before,
+.primary-income-button:hover::before,
+.danger-income-button:hover::before {
+  transform: translateX(120%);
+}
+
+.secondary-income-button:hover,
+.primary-income-button:hover,
+.danger-income-button:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 9px 20px rgba(20, 60, 45, .12);
+}
+
+.secondary-income-button:active,
+.primary-income-button:active,
+.danger-income-button:active {
+  transform: scale(.95);
+}
+
+
+/* =========================================================
+   CATEGORY DETAILS MODAL
+   ========================================================= */
+
+.category-modal-layer {
+  animation: modalBackdropIn .45s ease both;
+}
+
+.category-details-window {
+  animation:
+    categoryModalExpand .65s cubic-bezier(.17, .89, .32, 1.22) both;
+}
+
+.category-large-donut-wrap {
+  animation: categoryDonutReveal .8s cubic-bezier(.17, .89, .32, 1.28) .15s both;
+}
+
+.category-detail-list {
+  animation: detailListReveal .65s cubic-bezier(.22, 1, .36, 1) .25s both;
+}
+
+.category-detail-row {
+  opacity: 0;
+  animation: detailRowReveal .4s cubic-bezier(.22, 1, .36, 1) forwards;
+}
+
+.category-detail-row:nth-child(1) {
+  animation-delay: .30s;
+}
+
+.category-detail-row:nth-child(2) {
+  animation-delay: .37s;
+}
+
+.category-detail-row:nth-child(3) {
+  animation-delay: .44s;
+}
+
+.category-detail-row:nth-child(4) {
+  animation-delay: .51s;
+}
+
+.category-detail-row:nth-child(5) {
+  animation-delay: .58s;
+}
+
+.category-detail-row:nth-child(6) {
+  animation-delay: .65s;
+}
+
+.category-detail-row:hover {
+  transform: translateX(6px) scale(1.01);
+}
+
+
+/* =========================================================
+   DELETE CONFIRMATION MODAL
+   ========================================================= */
+
+.delete-layer {
+  animation: modalBackdropIn .4s ease both;
+}
+
+.delete-confirm-window {
+  animation:
+    deleteModalPop .55s cubic-bezier(.17, .89, .32, 1.28) both;
+}
+
+.delete-icon {
+  animation:
+    deleteIconPop .65s cubic-bezier(.17, .89, .32, 1.28) .15s both;
+}
+
+.delete-confirm-window h2 {
+  animation: deleteTextReveal .5s ease .25s both;
+}
+
+.delete-confirm-window p {
+  animation: deleteTextReveal .5s ease .32s both;
+}
+
+
+/* =========================================================
+   EMPTY STATES
+   ========================================================= */
+
+.empty-category,
+.empty-income-table {
+  animation: emptyStateReveal .65s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.empty-category span,
+.empty-income-table>div {
+  animation:
+    emptyIconFloat 3s ease-in-out .7s infinite;
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.income-loading-card {
+  animation: loadingReveal .6s ease both;
+}
+
+.income-spinner {
+  animation:
+    spin .8s linear infinite,
+    spinnerGlow 1.8s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   MAIN KEYFRAMES
+   ========================================================= */
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+@keyframes sidebarReveal {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+@keyframes logoReveal {
+  0% {
+    opacity: 0;
+    transform: scale(.5) rotate(-15deg);
+  }
+
+  70% {
+    transform: scale(1.12) rotate(3deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+
+@keyframes headerReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes brandSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+@keyframes navDropIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+@keyframes navActiveIn {
+  from {
+    transform: scale(.92);
+    opacity: .6;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+@keyframes actionsSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+@keyframes activeSidebarPulse {
+
+  0%,
+  100% {
+    box-shadow:
+      0 10px 25px rgba(18, 144, 90, .22);
+  }
+
+  50% {
+    box-shadow:
+      0 13px 32px rgba(18, 144, 90, .30);
+  }
+}
+
+
+@keyframes contentReveal {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes headingReveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes titleReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+
+@keyframes subtitleReveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   SUMMARY
+   ========================================================= */
+
+@keyframes summaryReveal {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+@keyframes amountReveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+@keyframes trendReveal {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+@keyframes summaryOrb {
+
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate(-15px, 12px) rotate(8deg);
+  }
+}
+
+
+@keyframes toastFloat {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+@keyframes incomeCardIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(.96);
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* =========================================================
+   LINE GRAPH
+   ========================================================= */
+
+@keyframes chartContainerReveal {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes scaleReveal {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+@keyframes lineDrawLeftToRight {
+  0% {
+    stroke-dashoffset: 1200;
+    opacity: .2;
+  }
+
+  15% {
+    opacity: .5;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+
+@keyframes graphPointReveal {
+  0% {
+    opacity: 0;
+    transform: scale(.25);
+  }
+
+  70% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+@keyframes monthsReveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes tooltipPop {
+  from {
+    opacity: 0;
+    transform: scale(.75);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+@keyframes tooltipGlow {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: .88;
+  }
+}
+
+
+/* =========================================================
+   DONUT
+   ========================================================= */
+
+@keyframes donutContainerReveal {
+  from {
+    opacity: 0;
+    transform: scale(.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+@keyframes donutReveal {
+  0% {
+    opacity: 0;
+    transform: scale(.45) rotate(-25deg);
+  }
+
+  65% {
+    opacity: 1;
+    transform: scale(1.06) rotate(3deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+
+@keyframes donutHoleReveal {
+  from {
+    opacity: 0;
+    transform: scale(.5);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+@keyframes donutTextReveal {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes legendReveal {
+  from {
+    opacity: 0;
+    transform: translateX(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+@keyframes categoryRowReveal {
+  from {
+    opacity: 0;
+    transform: translateX(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+@keyframes tableRowReveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   FORM MODAL
+   ========================================================= */
+
+@keyframes modalBackdropIn {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0);
+  }
+
+  to {
+    opacity: 1;
+    backdrop-filter: blur(7px);
+  }
+}
+
+
+@keyframes formExpandSmooth {
+  0% {
+    opacity: 0;
+    transform:
+      translateY(35px) scale(.72) rotateX(8deg);
+    border-radius: 20px;
+  }
+
+  65% {
+    opacity: 1;
+    transform:
+      translateY(-5px) scale(1.015) rotateX(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform:
+      translateY(0) scale(1) rotateX(0);
+    border-radius: 28px;
+  }
+}
+
+
+@keyframes formHeaderReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes formBodyReveal {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes fieldReveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   CATEGORY MODAL
+   ========================================================= */
+
+@keyframes categoryModalExpand {
+  0% {
+    opacity: 0;
+    transform: scale(.75) translateY(25px);
+  }
+
+  65% {
+    opacity: 1;
+    transform: scale(1.015) translateY(-3px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+
+@keyframes categoryDonutReveal {
+  from {
+    opacity: 0;
+    transform: scale(.7) rotate(-15deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+
+@keyframes detailListReveal {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+@keyframes detailRowReveal {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+/* =========================================================
+   DELETE MODAL
+   ========================================================= */
+
+@keyframes deleteModalPop {
+  0% {
+    opacity: 0;
+    transform: scale(.65) translateY(20px);
+  }
+
+  70% {
+    opacity: 1;
+    transform: scale(1.03) translateY(-2px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+
+@keyframes deleteIconPop {
+  0% {
+    opacity: 0;
+    transform: scale(.4) rotate(-20deg);
+  }
+
+  70% {
+    opacity: 1;
+    transform: scale(1.12) rotate(4deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+
+@keyframes deleteTextReveal {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   EMPTY + LOADING
+   ========================================================= */
+
+@keyframes emptyStateReveal {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes emptyIconFloat {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+
+  50% {
+    transform: translateY(-5px) rotate(-3deg);
+  }
+}
+
+
+@keyframes loadingReveal {
+  from {
+    opacity: 0;
+    transform: scale(.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+@keyframes spinnerGlow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(27, 123, 87, 0);
+  }
+
+  50% {
+    box-shadow: 0 0 18px rgba(27, 123, 87, .12);
+  }
+}
+
+
+/* =========================================================
+   MOBILE SIDEBAR
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+  .income-sidebar {
+    transition:
+      left .45s cubic-bezier(.22, 1, .36, 1),
+      box-shadow .45s ease;
+  }
+
+  .income-sidebar.open {
+    animation: mobileSidebarOpen .45s cubic-bezier(.22, 1, .36, 1) both;
+  }
+
+  .income-sidebar-backdrop {
+    animation: mobileBackdropIn .35s ease both;
+  }
+
+  .income-mobile-menu:active {
+    transform: scale(.88) rotate(5deg);
+  }
+}
+
+
+@keyframes mobileSidebarOpen {
+  from {
+    left: -110px;
+  }
+
+  to {
+    left: 0;
+  }
+}
+
+
+@keyframes mobileBackdropIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+
+
+/* =========================================================
+   CASHCOMPASS BUDGET MODULE
+   Reuses the Income page's animation system and visual language.
+   ========================================================= */
+.budget-heading-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: flex-end
+}
+
+.budget-month-picker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 9px;
+  border: 1px solid #dfeae4;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, .78);
+  box-shadow: 0 8px 24px rgba(24, 83, 58, .08)
+}
+
+.budget-month-picker button {
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 11px;
+  background: #edf7f1;
+  color: #1b7b57;
+  font-size: 25px;
+  cursor: pointer;
+  transition: transform .25s ease, background .25s ease
+}
+
+.budget-month-picker button:hover {
+  transform: scale(1.1) rotate(-4deg);
+  background: #dcefe5
+}
+
+.budget-month-picker div {
+  min-width: 88px;
+  text-align: center
+}
+
+.budget-month-picker strong,
+.budget-month-picker small {
+  display: block
+}
+
+.budget-month-picker strong {
+  font-size: 14px;
+  color: #214d3a
+}
+
+.budget-month-picker small {
+  font-weight: 500;
+  font-size: 11px;
+  color: #7a9085;
+  margin-top: 2px
+}
+
+.budget-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 18px
+}
+
+.budget-summary {
+  min-height: 145px;
+  position: relative;
+  overflow: hidden
+}
+
+.budget-summary::after {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  right: -42px;
+  bottom: -58px;
+  background: rgba(255, 255, 255, .28);
+  animation: budgetFloat 4.5s ease-in-out infinite
+}
+
+.budget-blue .summary-card-icon {
+  background: #e7f0ff;
+  color: #4a78b8
+}
+
+.budget-orange .summary-card-icon {
+  background: #fff0df;
+  color: #c87b20
+}
+
+.budget-green .summary-card-icon {
+  background: #e3f6eb;
+  color: #21845a
+}
+
+.budget-red .summary-card-icon {
+  background: #ffe6e6;
+  color: #bf4d4d
+}
+
+.budget-purple .summary-card-icon {
+  background: #eee8ff;
+  color: #7757b8
+}
+
+.budget-progress-card {
+  margin-bottom: 18px
+}
+
+.budget-status {
+  padding: 8px 13px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em
+}
+
+.budget-status.safe {
+  background: #e4f5eb;
+  color: #227b53
+}
+
+.budget-status.warning {
+  background: #fff1d8;
+  color: #9a681f
+}
+
+.budget-status.danger {
+  background: #ffe3e3;
+  color: #ae4040
+}
+
+.budget-big-progress {
+  padding: 20px 4px 4px
+}
+
+.budget-progress-track {
+  height: 20px;
+  background: #edf3ef;
+  border-radius: 999px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 5px rgba(34, 73, 57, .08)
+}
+
+.budget-progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #74c69d, #1b7b57);
+  transition: width 1s cubic-bezier(.22, 1, .36, 1);
+  position: relative
+}
+
+.budget-progress-fill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, .5) 45%, transparent 70%);
+  animation: budgetShine 2.5s linear infinite
+}
+
+.budget-progress-fill.warning {
+  background: linear-gradient(90deg, #f4d35e, #e5a62e)
+}
+
+.budget-progress-fill.danger {
+  background: linear-gradient(90deg, #f28b82, #c94d4d)
+}
+
+.budget-progress-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  color: #70877b;
+  font-size: 19px
+}
+
+.budget-progress-labels strong {
+  color: #244e3b
+}
+
+.budget-categories-card {
+  margin-bottom: 18px
+}
+
+.budget-category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+  margin-top: 18px
+}
+
+.budget-category-card {
+  border: 1px solid #e4eee8;
+  border-radius: 18px;
+  padding: 17px;
+  background: linear-gradient(145deg, #fff, #f8fcfa);
+  box-shadow: 0 8px 20px rgba(28, 80, 55, .05);
+  transition: transform .35s cubic-bezier(.17, .89, .32, 1.28), box-shadow .35s ease, border-color .25s ease;
+  animation: budgetCardJiggle .65s both
+}
+
+.budget-category-card:nth-child(2) {
+  animation-delay: .05s
+}
+
+.budget-category-card:nth-child(3) {
+  animation-delay: .1s
+}
+
+.budget-category-card:nth-child(4) {
+  animation-delay: .15s
+}
+
+.budget-category-card:nth-child(5) {
+  animation-delay: .2s
+}
+
+.budget-category-card:nth-child(6) {
+  animation-delay: .25s
+}
+
+.budget-category-card:hover,
+.budget-category-card.active {
+  transform: translateY(-6px) rotate(.25deg);
+  box-shadow: 0 18px 34px rgba(28, 80, 55, .12);
+  border-color: #b9dfcc
+}
+
+.budget-category-top {
+  display: flex;
+  align-items: center;
+  gap: 10px
+}
+
+.budget-category-top>div:nth-child(2) {
+  flex: 1
+}
+
+.budget-category-top strong,
+.budget-category-top small {
+  display: block
+}
+
+.budget-category-top strong {
+  font-size: 14px;
+  color: #214d3a
+}
+
+.budget-category-top small {
+  font-size: 13px;
+  font-weight: 800;
+  color: #87998f;
+  margin-top: 3px
+}
+
+.budget-percent {
+  font-size: 15px;
+  font-weight: 800;
+  color: #247b55
+}
+
+.budget-percent.danger {
+  color: #b34d4d
+}
+
+.budget-mini-track {
+  height: 8px;
+  background: #eaf1ed;
+  border-radius: 999px;
+  margin: 17px 0 12px;
+  overflow: hidden
+}
+
+.budget-mini-fill {
+  height: 100%;
+  background: #69bb91;
+  border-radius: 999px;
+  transition: width .8s cubic-bezier(.22, 1, .36, 1)
+}
+
+.budget-mini-fill.warning {
+  background: #e7b443
+}
+
+.budget-mini-fill.danger {
+  background: #d96565
+}
+
+.budget-category-numbers {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-weight: 800;
+  font-size: 13px;
+  color: #899990
+}
+
+.budget-category-numbers b {
+  display: block;
+  font-size: 12px;
+  color: #3b5d4d;
+  margin-top: 3px
+}
+
+.budget-card-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 7px;
+  margin-top: 12px
+}
+
+.budget-card-actions button {
+  border: 0;
+  background: #eef7f2;
+  color: #32775a;
+  border-radius: 9px;
+  padding: 7px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .2s ease, background .2s ease
+}
+
+.budget-card-actions button:hover {
+  transform: translateY(-2px) rotate(-2deg);
+  background: #dcefe5
+}
+
+.budget-card-actions .delete-action {
+  color: #b54e4e;
+  background: #fff0f0
+}
+
+.budget-empty {
+  grid-column: 1/-1;
+  text-align: center;
+  padding: 45px 20px;
+  border: 1px dashed #cfe2d7;
+  border-radius: 18px;
+  background: #fbfefc
+}
+
+.budget-empty>div {
+  font-size: 35px;
+  color: #6ab18c
+}
+
+.budget-empty h3 {
+  margin: 10px 0 5px;
+  color: #315745
+}
+
+.budget-empty p {
+  color: #87988f;
+  margin: 0 0 18px;
+  font-size: 13px
+}
+
+.budget-view-all {
+  display: block;
+  margin: 18px auto 0
+}
+
+.budget-form-window {
+  max-width: 650px
+}
+
+.delete-confirm-window {
+  width: min(92vw, 470px);
+  background: #fff;
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: 0 28px 80px rgba(25, 61, 44, .22);
+  animation: budgetModalJiggle .45s cubic-bezier(.17, .89, .32, 1.28)
+}
+
+.delete-confirm-window h2 {
+  margin: 9px 0;
+  color: #244d3a
+}
+
+.delete-confirm-window p {
+  color: #7c8f85;
+  line-height: 1.6
+}
+
+.danger-income-button {
+  border: 0;
+  border-radius: 12px;
+  padding: 12px 18px;
+  background: #c95656;
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer
+}
+
+.danger-income-button:disabled {
+  opacity: .6;
+  cursor: not-allowed
+}
+
+@keyframes budgetCardJiggle {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(.96) rotate(-1deg)
+  }
+
+  65% {
+    opacity: 1;
+    transform: translateY(-3px) scale(1.01) rotate(.35deg)
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0)
+  }
+}
+
+@keyframes budgetModalJiggle {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(.92) rotate(-1deg)
+  }
+
+  70% {
+    opacity: 1;
+    transform: translateY(-4px) scale(1.015) rotate(.25deg)
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0)
+  }
+}
+
+@keyframes budgetFloat {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0)
+  }
+
+  50% {
+    transform: translateY(-9px) rotate(8deg)
+  }
+}
+
+@keyframes budgetShine {
+  0% {
+    transform: translateX(-120%)
+  }
+
+  100% {
+    transform: translateX(120%)
+  }
+}
+
+@media(max-width:1100px) {
+  .budget-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr))
+  }
+
+  .budget-category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr))
+  }
+}
+
+@media(max-width:700px) {
+
+  .budget-summary-grid,
+  .budget-category-grid {
+    grid-template-columns: 1fr
+  }
+
+  .budget-heading-actions {
+    width: 100%;
+    justify-content: flex-start
+  }
+
+  .budget-month-picker {
+    flex: 1
+  }
+
+  .budget-month-picker div {
+    flex: 1
+  }
+
+  .budget-heading-actions .add-income-button {
+    width: 100%
+  }
+}

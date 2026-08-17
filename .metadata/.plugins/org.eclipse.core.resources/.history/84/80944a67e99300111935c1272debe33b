@@ -1,0 +1,5 @@
+package com.expensemanager.dto;
+
+public class AddExpenseRequest {
+
+}

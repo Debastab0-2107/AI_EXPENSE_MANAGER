@@ -1,0 +1,758 @@
+/* =========================================
+   VERIFY PAGE
+========================================= */
+
+.verify-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(74, 222, 128, 0.16),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            rgba(34, 197, 94, 0.12),
+            transparent 35%
+        ),
+        #f5faf6;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================================
+   VERIFY CARD
+========================================= */
+
+.verify-card {
+    width: 100%;
+    max-width: 430px;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border-radius: 28px;
+
+    padding: 42px 38px;
+
+    text-align: center;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.10);
+
+    animation: cardAppear 0.7s ease;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.verify-logo img {
+    width: 65px;
+    height: 65px;
+
+    object-fit: contain;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================================
+   EMAIL ICON
+========================================= */
+
+.verify-icon {
+    width: 70px;
+    height: 70px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #e9f8ee;
+
+    font-size: 30px;
+
+    animation: gentleFloat 2.5s ease-in-out infinite;
+}
+
+
+/* =========================================
+   HEADINGS
+========================================= */
+
+.verify-card h1 {
+    margin: 0;
+
+    font-size: 30px;
+
+    color: #173b27;
+}
+
+.verify-description {
+    margin: 14px 0 5px;
+
+    color: #6b7280;
+
+    line-height: 1.6;
+}
+
+.verify-email {
+    display: block;
+
+    margin-bottom: 28px;
+
+    color: #15803d;
+
+    word-break: break-word;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.verify-card form {
+    text-align: left;
+}
+
+.verify-card label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #374151;
+}
+
+
+/* =========================================
+   OTP INPUT
+========================================= */
+
+.verify-card input {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 15px;
+
+    border: 2px solid #dce8df;
+
+    border-radius: 14px;
+
+    outline: none;
+
+    text-align: center;
+
+    font-size: 25px;
+
+    font-weight: 700;
+
+    letter-spacing: 9px;
+
+    color: #173b27;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.2s ease;
+}
+
+.verify-card input:focus {
+    border-color: #22a652;
+
+    box-shadow:
+        0 0 0 4px rgba(34, 166, 82, 0.12);
+
+    transform: scale(1.01);
+}
+
+
+/* =========================================
+   ERROR
+========================================= */
+
+.verify-error {
+    margin-top: 12px;
+
+    padding: 10px 12px;
+
+    border-radius: 10px;
+
+    background: #fff1f2;
+
+    color: #dc2626;
+
+    font-size: 13px;
+
+    text-align: center;
+
+    animation: errorJiggle 0.4s ease;
+}
+
+
+/* =========================================
+   VERIFY BUTTON
+========================================= */
+
+.verify-card form button {
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background: #16833f;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.verify-card form button:hover:not(:disabled) {
+    background: #126d34;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(22, 131, 63, 0.25);
+}
+
+.verify-card form button:active:not(:disabled) {
+    transform: scale(0.97);
+}
+
+.verify-card form button:disabled {
+    opacity: 0.65;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.verify-footer {
+    margin-top: 25px;
+
+    color: #6b7280;
+
+    font-size: 14px;
+}
+
+.resend-button {
+    border: none;
+
+    background: none;
+
+    color: #15803d;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    margin-left: 5px;
+}
+
+.resend-button:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   SUCCESS OVERLAY
+========================================= */
+
+.verification-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 25px;
+
+    background: rgba(11, 30, 18, 0.42);
+
+    backdrop-filter: blur(7px);
+
+    animation: overlayAppear 0.35s ease;
+}
+
+
+/* =========================================
+   SUCCESS POPUP
+========================================= */
+
+.verification-success-popup {
+    width: 100%;
+
+    max-width: 430px;
+
+    padding: 42px 35px;
+
+    border-radius: 30px;
+
+    background: white;
+
+    text-align: center;
+
+    box-shadow:
+        0 30px 90px rgba(0, 0, 0, 0.25);
+
+    animation: successJiggle 0.8s cubic-bezier(.34, 1.56, .64, 1);
+}
+
+
+/* =========================================
+   SUCCESS CHECK
+========================================= */
+
+.success-check {
+    width: 78px;
+    height: 78px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: #dcfce7;
+
+    color: #15803d;
+
+    font-size: 40px;
+
+    font-weight: 800;
+
+    animation: checkPop 0.7s cubic-bezier(.34, 1.56, .64, 1);
+}
+
+
+/* =========================================
+   SUCCESS TEXT
+========================================= */
+
+.verification-success-popup h2 {
+    margin: 0 0 12px;
+
+    font-size: 30px;
+
+    color: #14532d;
+}
+
+.verification-success-popup p {
+    margin: 7px 0;
+
+    color: #64748b;
+
+    line-height: 1.6;
+}
+
+.verification-success-popup .login-message {
+    margin-top: 18px;
+
+    color: #334155;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   SMALL LOADING ANIMATION
+========================================= */
+
+.success-loader {
+    width: 100%;
+
+    height: 4px;
+
+    margin-top: 28px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background: #e5e7eb;
+}
+
+.success-loader span {
+    display: block;
+
+    width: 0%;
+
+    height: 100%;
+
+    background: #22a652;
+
+    animation: loginRedirect 2.5s linear forwards;
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(0.94);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+@keyframes gentleFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+
+@keyframes overlayAppear {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes successJiggle {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            scale(0.65)
+            rotate(-5deg);
+    }
+
+    55% {
+        transform:
+            scale(1.08)
+            rotate(2deg);
+    }
+
+    75% {
+        transform:
+            scale(0.96)
+            rotate(-1deg);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            scale(1)
+            rotate(0);
+    }
+}
+
+
+@keyframes checkPop {
+
+    0% {
+        transform: scale(0) rotate(-30deg);
+    }
+
+    60% {
+        transform: scale(1.2) rotate(8deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(0);
+    }
+}
+
+
+@keyframes errorJiggle {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+
+    75% {
+        transform: translateX(-3px);
+    }
+}
+
+
+@keyframes loginRedirect {
+
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+/* =========================================
+   RESEND COUNTDOWN
+========================================= */
+
+.resend-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+.resend-button:not(:disabled) {
+    animation: resendReady 0.5s ease;
+}
+
+@keyframes resendReady {
+    0% {
+        transform: scale(0.9);
+    }
+
+    40% {
+        transform: scale(1.08) rotate(-1deg);
+    }
+
+    70% {
+        transform: scale(0.97) rotate(1deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(0);
+    }
+}
+/* =========================================
+   RESEND OTP TIMER
+========================================= */
+
+.resend-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.resend-footer {
+    margin-bottom: 12px;
+}
+
+
+/* =========================================
+   TIMER CONTAINER
+========================================= */
+
+.resend-timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+
+    margin-top: 12px;
+    padding: 12px 18px;
+
+    border-radius: 16px;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.08);
+
+    animation: timerJiggle 0.6s ease;
+}
+
+
+/* =========================================
+   CIRCULAR TIMER
+========================================= */
+
+.timer-circle {
+    width: 46px;
+    height: 46px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ffffff;
+
+    border: 3px solid #78b89a;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.08);
+
+    animation: timerPulse 1s ease-in-out infinite;
+}
+
+.timer-circle span {
+    font-size: 15px;
+    font-weight: 700;
+
+    color: #356b52;
+}
+
+
+/* =========================================
+   TIMER TEXT
+========================================= */
+
+.timer-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 2px;
+}
+
+.timer-text span {
+    font-size: 12px;
+    color: #777;
+}
+
+.timer-text strong {
+    font-size: 17px;
+    color: #356b52;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================
+   RESEND BUTTON
+========================================= */
+
+.resend-button {
+    border: none;
+    background: transparent;
+
+    color: #356b52;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    padding: 8px 14px;
+
+    border-radius: 10px;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+.resend-button:hover {
+    background: rgba(53, 107, 82, 0.08);
+
+    transform: scale(1.05);
+}
+
+.resend-button:active {
+    transform: scale(0.95);
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes timerPulse {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+@keyframes timerJiggle {
+
+    0% {
+        transform: scale(0.94) rotate(-1deg);
+        opacity: 0;
+    }
+
+    40% {
+        transform: scale(1.04) rotate(1deg);
+        opacity: 1;
+    }
+
+    70% {
+        transform: scale(0.98) rotate(-0.5deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(0);
+    }
+}

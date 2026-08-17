@@ -1,0 +1,5 @@
+package com.expensemanager.scheduler;
+
+public class UserCleanupScheduler {
+
+}

@@ -1,0 +1,2074 @@
+/* =========================================================
+   CASHCOMPASS AUTH PAGES
+   REGISTER + LOGIN
+========================================================= */
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family:
+        Inter,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    background: #effcf4;
+    color: #164c2f;
+}
+
+
+/* =========================================================
+   MAIN PAGE
+========================================================= */
+
+.auth-page {
+
+    position: relative;
+
+    min-height: 100vh;
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 55% 45%;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 75% 20%,
+            rgba(168, 247, 195, 0.85),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(211, 250, 225, 0.9),
+            transparent 38%
+        ),
+        linear-gradient(
+            135deg,
+            #f7fffa 0%,
+            #eafff1 48%,
+            #d9fbe6 100%
+        );
+}
+
+
+/* =========================================================
+   LARGE BACKGROUND GLOW
+========================================================= */
+
+.background-glow {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    filter: blur(10px);
+}
+
+
+.glow-one {
+
+    width: 650px;
+    height: 650px;
+
+    right: -220px;
+    bottom: -260px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(70, 220, 126, 0.30),
+            rgba(70, 220, 126, 0)
+        );
+}
+
+
+.glow-two {
+
+    width: 500px;
+    height: 500px;
+
+    left: 5%;
+    top: 10%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.75),
+            rgba(255, 255, 255, 0)
+        );
+}
+
+
+/* =========================================================
+   BRANDING SECTION
+========================================================= */
+
+.auth-brand-section {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 80px 7vw;
+
+    z-index: 2;
+}
+
+
+.brand-content {
+
+    position: relative;
+
+    width: min(600px, 100%);
+}
+
+
+/* =========================================================
+   SMALL HEADING
+========================================================= */
+
+.brand-small-heading {
+
+    margin-bottom: 25px;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    letter-spacing: 8px;
+
+    color: #5e9b78;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   MAIN CASH COMPASS TEXT
+========================================================= */
+
+.brand-title {
+
+    margin: 0;
+
+    font-size: clamp(80px, 9vw, 145px);
+
+    line-height: 0.82;
+
+    font-weight: 800;
+
+    letter-spacing: -7px;
+
+    color: #129f48;
+
+    text-transform: lowercase;
+
+    text-shadow:
+        0 15px 45px rgba(30, 150, 75, 0.10);
+}
+
+
+/* =========================================================
+   TAGLINE
+========================================================= */
+
+.brand-tagline {
+
+    margin:
+
+        35px 0 0;
+
+    font-size: 25px;
+
+    line-height: 1.3;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    color: #377a55;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.brand-description {
+
+    width: 540px;
+
+    max-width: 100%;
+
+    margin-top: 28px;
+
+    font-size: 18px;
+
+    line-height: 1.75;
+
+    color: #639477;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   FLOATING MESSAGE CARDS
+========================================================= */
+
+.floating-message {
+
+    position: absolute;
+
+    padding: 15px 23px;
+
+    border-radius: 15px;
+
+    background: rgba(255, 255, 255, 0.72);
+
+    border: 1px solid rgba(255, 255, 255, 0.90);
+
+    box-shadow:
+        0 12px 30px rgba(42, 126, 72, 0.08);
+
+    color: #65977a;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    backdrop-filter: blur(8px);
+
+    animation: floatingCard 4s ease-in-out infinite;
+}
+
+
+.message-one {
+
+    top: -10px;
+
+    right: -50px;
+}
+
+
+.message-two {
+
+    top: 95px;
+
+    right: -55px;
+
+    animation-delay: 1.2s;
+}
+
+
+@keyframes floatingCard {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+
+/* =========================================================
+   FORM SECTION
+========================================================= */
+
+.auth-form-section {
+
+    position: relative;
+
+    z-index: 5;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 50px 6vw;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.auth-card {
+
+    width: min(510px, 100%);
+
+    padding: 42px 40px 34px;
+
+    border-radius: 17px;
+
+    background:
+        rgba(255, 255, 255, 0.80);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.95);
+
+    box-shadow:
+        0 25px 70px rgba(30, 115, 65, 0.13);
+
+    backdrop-filter: blur(20px);
+
+    -webkit-backdrop-filter: blur(20px);
+}
+
+
+/* =========================================================
+   CARD HEADER
+========================================================= */
+
+.auth-card-header h2 {
+
+    margin: 0;
+
+    color: #173f29;
+
+    font-size: 25px;
+
+    line-height: 1.25;
+
+    font-weight: 800;
+}
+
+
+.auth-card-header p {
+
+    margin:
+
+        10px 0 30px;
+
+    color: #82a493;
+
+    font-size: 16px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.auth-form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 19px;
+}
+
+
+/* =========================================================
+   INPUT GROUP
+========================================================= */
+
+.input-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.input-group label {
+
+    color: #417a59;
+
+    font-size: 15px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.input-group input {
+
+    width: 100%;
+
+    height: 57px;
+
+    padding: 0 16px;
+
+    border-radius: 8px;
+
+    border:
+        1px solid #cce7d6;
+
+    outline: none;
+
+    background:
+        rgba(248, 253, 250, 0.85);
+
+    color: #315f43;
+
+    font-size: 16px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.input-group input::placeholder {
+
+    color: #a1b8aa;
+}
+
+
+.input-group input:focus {
+
+    border-color: #19a955;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 4px rgba(25, 169, 85, 0.10);
+}
+
+
+/* =========================================================
+   PASSWORD
+========================================================= */
+
+.password-wrapper {
+
+    position: relative;
+}
+
+
+.password-wrapper input {
+
+    padding-right: 55px;
+}
+
+
+.password-toggle {
+
+    position: absolute;
+
+    right: 12px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 36px;
+
+    height: 36px;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    color: #4f775e;
+
+    font-size: 18px;
+}
+
+
+.password-toggle:hover {
+
+    color: #15994b;
+}
+
+
+/* =========================================================
+   PASSWORD LABEL ROW
+========================================================= */
+
+.password-label-row {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+
+.password-label-row a {
+
+    color: #14964a;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+
+.password-label-row a:hover {
+
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   TERMS
+========================================================= */
+
+.terms-row {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    color: #7c9385;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    cursor: pointer;
+}
+
+
+.terms-row input {
+
+    width: 16px;
+
+    height: 16px;
+
+    margin-top: 2px;
+
+    accent-color: #16a052;
+
+    flex-shrink: 0;
+}
+
+
+.terms-row a {
+
+    color: #138d43;
+
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   REMEMBER ME
+========================================================= */
+
+.remember-row {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: #7c9385;
+
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+
+.remember-row input {
+
+    width: 16px;
+
+    height: 16px;
+
+    accent-color: #16a052;
+}
+
+
+/* =========================================================
+   AUTH MESSAGES
+========================================================= */
+
+.auth-message {
+
+    padding: 12px 14px;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+.error-message {
+
+    color: #a33838;
+
+    background: #fff1f1;
+
+    border: 1px solid #f2c9c9;
+}
+
+
+.success-message {
+
+    color: #176b3a;
+
+    background: #edfff3;
+
+    border: 1px solid #bfe8cc;
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+========================================================= */
+
+.primary-auth-button {
+
+    width: 100%;
+
+    height: 57px;
+
+    margin-top: 3px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            100deg,
+            #15a54e,
+            #1bc65b
+        );
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.2px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 12px 25px rgba(20, 170, 78, 0.20);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+
+.primary-auth-button:hover:not(:disabled) {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 16px 30px rgba(20, 170, 78, 0.27);
+
+    filter: brightness(1.03);
+}
+
+
+.primary-auth-button:active:not(:disabled) {
+
+    transform: translateY(0);
+}
+
+
+.primary-auth-button:disabled {
+
+    opacity: 0.65;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   SWITCH LOGIN / REGISTER
+========================================================= */
+
+.switch-auth {
+
+    text-align: center;
+
+    color: #91a59a;
+
+    font-size: 14px;
+
+    margin-top: 2px;
+}
+
+
+.switch-auth a {
+
+    margin-left: 5px;
+
+    color: #138d43;
+
+    font-weight: 800;
+
+    text-decoration: none;
+}
+
+
+.switch-auth a:hover {
+
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   EXTERNAL LOGO
+   IMPORTANT:
+   Image comes directly from GitHub.
+   Nothing is stored locally.
+========================================================= */
+
+.external-logo {
+
+    position: fixed;
+
+    left: 42px;
+
+    top: 30px;
+
+    z-index: 20;
+
+    display: flex;
+
+    align-items: center;
+
+    text-decoration: none;
+}
+
+
+.external-logo img {
+
+    width: 145px;
+
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(
+            0 4px 8px rgba(0, 100, 40, 0.10)
+        );
+}
+
+/* =========================================================
+   EXTERNAL LOGO for the login page
+   IMPORTANT:
+   Image comes directly from GitHub.
+   Nothing is stored locally.
+========================================================= */
+
+.external-logo-login {
+
+    position: fixed;
+
+    right: 42px;
+
+    top: 30px;
+
+    z-index: 20;
+
+    display: flex;
+
+    align-items: center;
+
+    text-decoration: none;
+}
+
+
+.external-logo-login img {
+
+    width: 145px;
+
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(
+            0 4px 8px rgba(0, 100, 40, .70)
+        );
+}
+/* =========================================================
+   DECORATIVE DOTS
+========================================================= */
+
+.floating-dot {
+
+    position: absolute;
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: rgba(48, 183, 100, 0.35);
+
+    z-index: 1;
+
+    animation: dotFloat 5s ease-in-out infinite;
+}
+
+
+.dot-1 {
+
+    left: 13%;
+
+    top: 21%;
+}
+
+
+.dot-2 {
+
+    left: 17%;
+
+    top: 28%;
+
+    animation-delay: 1s;
+}
+
+
+.dot-3 {
+
+    left: 20%;
+
+    top: 19%;
+
+    animation-delay: 1.7s;
+}
+
+
+.dot-4 {
+
+    left: 43%;
+
+    bottom: 27%;
+
+    animation-delay: 0.8s;
+}
+
+
+.dot-5 {
+
+    left: 47%;
+
+    bottom: 32%;
+
+    animation-delay: 2s;
+}
+
+
+@keyframes dotFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+        opacity: 0.45;
+    }
+
+    50% {
+        transform: translateY(-8px);
+        opacity: 0.85;
+    }
+}
+
+
+/* =========================================================
+   LOGIN LAYOUT
+========================================================= */
+
+.login-page {
+
+    grid-template-columns: 45% 55%;
+}
+
+
+/*
+   Because CSS grid normally places the first element
+   on the left, the login form naturally appears
+   on the left and branding appears on the right.
+*/
+
+.login-form-section {
+
+    order: 1;
+}
+
+
+.login-brand-section {
+
+    order: 2;
+}
+
+
+/* =========================================================
+   LOGIN BRANDING ALIGNMENT
+========================================================= */
+
+.login-brand-section .brand-content {
+
+    margin-left: 20px;
+}
+
+
+/* =========================================================
+   RESPONSIVE TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .auth-page {
+
+        grid-template-columns: 50% 50%;
+    }
+
+
+    .login-page {
+
+        grid-template-columns: 50% 50%;
+    }
+
+
+    .auth-brand-section {
+
+        padding: 60px 5vw;
+    }
+
+
+    .brand-title {
+
+        font-size: clamp(
+            70px,
+            8vw,
+            110px
+        );
+    }
+
+
+    .message-one {
+
+        right: -20px;
+    }
+
+
+    .message-two {
+
+        right: -25px;
+    }
+
+
+    .auth-form-section {
+
+        padding: 40px 4vw;
+    }
+
+
+    .auth-card {
+
+        padding: 35px 30px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .auth-page,
+    .login-page {
+
+        display: flex;
+
+        flex-direction: column;
+
+        min-height: 100vh;
+
+        overflow-y: auto;
+    }
+
+
+    /*
+       On mobile branding comes first.
+    */
+
+    .auth-brand-section {
+
+        min-height: auto;
+
+        padding:
+            90px 25px 40px;
+
+        order: 1 !important;
+
+        justify-content: flex-start;
+    }
+
+
+    .auth-form-section {
+
+        min-height: auto;
+
+        padding:
+            20px 20px 100px;
+
+        order: 2 !important;
+    }
+
+
+    .brand-content {
+
+        text-align: center;
+    }
+
+
+    .brand-small-heading {
+
+        font-size: 12px;
+
+        letter-spacing: 5px;
+
+        margin-bottom: 20px;
+    }
+
+
+    .brand-title {
+
+        font-size: 76px;
+
+        line-height: 0.86;
+
+        letter-spacing: -5px;
+    }
+
+
+    .brand-tagline {
+
+        font-size: 20px;
+
+        margin-top: 25px;
+    }
+
+
+    .brand-description {
+
+        font-size: 15px;
+
+        margin-left: auto;
+
+        margin-right: auto;
+    }
+
+
+    .floating-message {
+
+        display: none;
+    }
+
+
+    .auth-card {
+
+        width: 100%;
+
+        padding: 30px 23px 27px;
+    }
+
+
+    .auth-card-header h2 {
+
+        font-size: 22px;
+    }
+
+
+    .external-logo {
+
+        left: 20px;
+
+        bottom: 18px;
+    }
+
+
+    .external-logo img {
+
+        width: 120px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 450px) {
+
+    .brand-title {
+
+        font-size: 62px;
+    }
+
+
+    .brand-tagline {
+
+        font-size: 18px;
+    }
+
+
+    .auth-card {
+
+        border-radius: 14px;
+
+        padding:
+            25px 18px;
+    }
+
+
+    .input-group input {
+
+        height: 53px;
+
+        font-size: 15px;
+    }
+
+
+    .primary-auth-button {
+
+        height: 54px;
+    }
+}/* =========================================================
+   EMAIL VERIFICATION SUCCESS POPUP
+========================================================= */
+
+.verification-overlay {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(10, 25, 20, 0.45);
+
+    backdrop-filter: blur(10px);
+
+    z-index: 9999;
+
+    animation: verificationOverlayIn 0.35s ease forwards;
+}
+
+
+.verification-popup {
+    width: min(430px, 90%);
+
+    padding: 42px 35px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.22);
+
+    animation: verificationPopupJiggle 0.8s
+        cubic-bezier(0.34, 1.56, 0.64, 1)
+        forwards;
+}
+
+
+/* SUCCESS CHECK */
+
+.success-check {
+    width: 78px;
+    height: 78px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #dff7e9;
+
+    color: #18864b;
+
+    font-size: 42px;
+    font-weight: 800;
+
+    box-shadow:
+        0 0 0 10px rgba(24, 134, 75, 0.08);
+
+    animation: successCheckPop 0.7s
+        cubic-bezier(0.34, 1.56, 0.64, 1)
+        0.15s both;
+}
+
+
+.verification-popup h2 {
+    margin: 0 0 10px;
+
+    font-size: 28px;
+
+    color: #173c2c;
+}
+
+
+.verification-popup p {
+    margin: 0 0 8px;
+
+    font-size: 16px;
+
+    color: #4c6258;
+
+    line-height: 1.6;
+}
+
+
+.verification-popup span {
+    display: block;
+
+    margin-top: 12px;
+
+    font-size: 14px;
+
+    color: #71827a;
+
+    line-height: 1.5;
+}
+
+
+/* LOADING BAR */
+
+.success-loading-bar {
+    width: 100%;
+
+    height: 5px;
+
+    margin-top: 28px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background: #e7eee9;
+}
+
+
+.success-loading-bar div {
+    width: 0;
+
+    height: 100%;
+
+    background: #18864b;
+
+    border-radius: inherit;
+
+    animation: successProgress 2.5s linear forwards;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes verificationOverlayIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes verificationPopupJiggle {
+
+    0% {
+        opacity: 0;
+        transform:
+            translateY(30px)
+            scale(0.75)
+            rotate(-3deg);
+    }
+
+    50% {
+        opacity: 1;
+        transform:
+            translateY(-8px)
+            scale(1.04)
+            rotate(2deg);
+    }
+
+    70% {
+        transform:
+            translateY(4px)
+            scale(0.98)
+            rotate(-1deg);
+    }
+
+    85% {
+        transform:
+            translateY(-2px)
+            scale(1.01)
+            rotate(0.5deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1)
+            rotate(0);
+    }
+}
+
+
+@keyframes successCheckPop {
+
+    0% {
+        opacity: 0;
+        transform: scale(0) rotate(-30deg);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale(1.2) rotate(8deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+
+@keyframes successProgress {
+
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+/* =========================================================
+   PASSWORD RESET PAGES
+========================================================= */
+
+.reset-auth-page {
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   RESET CARD ICON
+========================================================= */
+
+.reset-card-icon {
+    width: 64px;
+    height: 64px;
+
+    margin: 0 auto 18px;
+
+    border-radius: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+
+    background: rgba(20, 150, 74, 0.10);
+
+    box-shadow:
+        0 8px 25px rgba(20, 150, 74, 0.12);
+
+    animation:
+        resetIconJiggle 3s ease-in-out infinite;
+}
+
+
+@keyframes resetIconJiggle {
+
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    25% {
+        transform: rotate(-4deg) scale(1.03);
+    }
+
+    50% {
+        transform: rotate(4deg) scale(1.06);
+    }
+
+    75% {
+        transform: rotate(-2deg) scale(1.03);
+    }
+
+    100% {
+        transform: rotate(0deg) scale(1);
+    }
+}
+
+
+/* =========================================================
+   RESET CARD
+========================================================= */
+
+.password-reset-card {
+    animation:
+        resetCardEntrance 0.8s cubic-bezier(
+            0.175,
+            0.885,
+            0.32,
+            1.275
+        );
+}
+
+
+@keyframes resetCardEntrance {
+
+    0% {
+        opacity: 0;
+        transform:
+            translateY(45px)
+            scale(0.88)
+            rotate(-2deg);
+    }
+
+    55% {
+        opacity: 1;
+        transform:
+            translateY(-8px)
+            scale(1.02)
+            rotate(1deg);
+    }
+
+    75% {
+        transform:
+            translateY(4px)
+            scale(0.99)
+            rotate(-0.5deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1)
+            rotate(0);
+    }
+}
+
+
+/* =========================================================
+   EMAIL DISPLAY
+========================================================= */
+
+.reset-email-display {
+
+    margin: 5px 0 22px;
+
+    padding: 14px 16px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(20, 150, 74, 0.07),
+            rgba(20, 150, 74, 0.025)
+        );
+
+    border:
+        1px solid rgba(20, 150, 74, 0.12);
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+
+.reset-email-display span {
+
+    font-size: 12px;
+
+    color: #777;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.08em;
+
+    font-weight: 700;
+}
+
+
+.reset-email-display strong {
+
+    font-size: 14px;
+
+    color: #14964a;
+
+    word-break: break-all;
+}
+
+
+/* =========================================================
+   BUTTON-LIKE LINK
+========================================================= */
+
+.auth-link-button {
+
+    border: none;
+
+    background: transparent;
+
+    color: #14964a;
+
+    font: inherit;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    padding: 0;
+
+    margin-left: 5px;
+}
+
+
+.auth-link-button:hover {
+
+    text-decoration: underline;
+
+}
+
+
+/* =========================================================
+   INVALID RESET PAGE
+========================================================= */
+
+.reset-invalid-page {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 25px;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(20, 150, 74, 0.12),
+            transparent 35%
+        ),
+        #f7faf8;
+}
+
+
+.reset-invalid-card {
+
+    width: min(450px, 100%);
+
+    background: white;
+
+    padding: 45px 35px;
+
+    border-radius: 28px;
+
+    text-align: center;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.12);
+
+    animation:
+        invalidJiggle 0.8s
+        cubic-bezier(
+            0.175,
+            0.885,
+            0.32,
+            1.275
+        );
+}
+
+
+@keyframes invalidJiggle {
+
+    0% {
+        opacity: 0;
+        transform:
+            scale(0.75)
+            rotate(-5deg);
+    }
+
+    65% {
+        opacity: 1;
+        transform:
+            scale(1.04)
+            rotate(2deg);
+    }
+
+    100% {
+        transform:
+            scale(1)
+            rotate(0);
+    }
+}
+
+
+.reset-invalid-icon {
+
+    font-size: 42px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.reset-invalid-card h2 {
+
+    margin: 0 0 10px;
+
+}
+
+
+.reset-invalid-card p {
+
+    color: #666;
+
+    line-height: 1.6;
+
+}
+
+
+.reset-invalid-card button {
+
+    margin-top: 15px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    padding: 13px 24px;
+
+    background: #14964a;
+
+    color: white;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================================================
+   PASSWORD RESET SUCCESS OVERLAY
+========================================================= */
+
+.password-success-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(4, 20, 12, 0.42);
+
+    backdrop-filter: blur(9px);
+
+    animation:
+        successOverlayIn 0.35s ease-out;
+}
+
+
+@keyframes successOverlayIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   SUCCESS POPUP
+========================================================= */
+
+.password-success-popup {
+
+    width: min(470px, 100%);
+
+    padding: 42px 35px;
+
+    border-radius: 30px;
+
+    background: white;
+
+    text-align: center;
+
+    box-shadow:
+        0 30px 100px rgba(0, 0, 0, 0.25);
+
+    animation:
+        successPopupJiggle
+        0.9s
+        cubic-bezier(
+            0.175,
+            0.885,
+            0.32,
+            1.275
+        );
+}
+
+
+@keyframes successPopupJiggle {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateY(50px)
+            scale(0.65)
+            rotate(-7deg);
+
+    }
+
+    55% {
+
+        opacity: 1;
+
+        transform:
+            translateY(-12px)
+            scale(1.06)
+            rotate(3deg);
+
+    }
+
+    72% {
+
+        transform:
+            translateY(5px)
+            scale(0.98)
+            rotate(-1.5deg);
+
+    }
+
+    88% {
+
+        transform:
+            translateY(-2px)
+            scale(1.01)
+            rotate(0.5deg);
+
+    }
+
+    100% {
+
+        transform:
+            translateY(0)
+            scale(1)
+            rotate(0);
+
+    }
+}
+
+
+/* =========================================================
+   SUCCESS CHECK
+========================================================= */
+
+.password-success-orbit {
+
+    width: 90px;
+
+    height: 90px;
+
+    margin: 0 auto 20px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border:
+        2px dashed rgba(
+            20,
+            150,
+            74,
+            0.35
+        );
+
+    animation:
+        successOrbit 5s linear infinite;
+}
+
+
+@keyframes successOrbit {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+.password-success-check {
+
+    width: 65px;
+
+    height: 65px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #14964a;
+
+    color: white;
+
+    font-size: 32px;
+
+    font-weight: 900;
+
+    animation:
+        successCheckPop
+        0.7s
+        0.8s
+        both;
+}
+
+
+@keyframes successCheckPop {
+
+    0% {
+        transform: scale(0);
+    }
+
+    65% {
+        transform: scale(1.18);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* =========================================================
+   SUCCESS TEXT
+========================================================= */
+
+.success-kicker {
+
+    margin: 0 0 8px;
+
+    color: #14964a;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.12em;
+}
+
+
+.password-success-popup h2 {
+
+    margin: 0 0 10px;
+
+    font-size: 28px;
+
+    color: #18231d;
+}
+
+
+.password-success-popup > p {
+
+    margin: 6px 0;
+
+    color: #666;
+
+    line-height: 1.6;
+}
+
+
+.password-success-popup
+.success-login-message {
+
+    color: #14964a;
+
+    font-weight: 600;
+
+    margin-top: 12px;
+}
+
+
+/* =========================================================
+   SUCCESS LOADER
+========================================================= */
+
+.password-success-popup .success-loader {
+
+    width: 100%;
+
+    height: 4px;
+
+    margin-top: 25px;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    background: #e9f3ec;
+}
+
+
+.password-success-popup
+.success-loader span {
+
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+    background: #14964a;
+
+    transform-origin: left;
+
+    animation:
+        successProgress
+        2.6s
+        linear forwards;
+}
+
+
+@keyframes successProgress {
+
+    from {
+        transform: scaleX(0);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .password-success-popup {
+
+        padding:
+            35px
+            25px;
+
+        border-radius: 24px;
+    }
+
+    .password-success-popup h2 {
+
+        font-size: 24px;
+
+    }
+
+}

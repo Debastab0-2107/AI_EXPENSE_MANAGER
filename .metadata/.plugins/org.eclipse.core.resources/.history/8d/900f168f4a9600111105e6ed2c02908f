@@ -1,0 +1,15 @@
+package com.expensemanager.enums;
+
+public enum BudgetCategory {
+
+    FOOD,
+    TRANSPORT,
+    SHOPPING,
+    BILLS,
+    RENT,
+    ENTERTAINMENT,
+    HEALTH,
+    EDUCATION,
+    TRAVEL,
+    OTHER
+}

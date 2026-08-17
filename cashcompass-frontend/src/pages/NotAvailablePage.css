@@ -1,0 +1,413 @@
+/* =========================================================
+   NOT AVAILABLE PAGE
+   ========================================================= */
+
+.not-available-page {
+    min-height: 100vh;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(116, 198, 157, 0.18),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(146, 220, 229, 0.18),
+            transparent 30%
+        ),
+        #f6faf8;
+
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   BACKGROUND ORBS
+   ========================================================= */
+
+.not-available-orb {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(2px);
+
+    opacity: 0.5;
+
+    pointer-events: none;
+}
+
+.orb-one {
+    width: 260px;
+    height: 260px;
+
+    top: -90px;
+    left: -70px;
+
+    background: rgba(116, 198, 157, 0.20);
+
+    animation: floatingOrb 6s ease-in-out infinite;
+}
+
+.orb-two {
+    width: 320px;
+    height: 320px;
+
+    right: -100px;
+    bottom: -130px;
+
+    background: rgba(146, 220, 229, 0.18);
+
+    animation: floatingOrb 7s ease-in-out infinite reverse;
+}
+
+
+/* =========================================================
+   MAIN CARD
+   ========================================================= */
+
+.not-available-card {
+    width: min(440px, calc(100% - 40px));
+
+    padding: 46px 40px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.92);
+
+    border: 1px solid rgba(116, 198, 157, 0.28);
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 25px 70px rgba(27, 123, 87, 0.12),
+        0 8px 25px rgba(0, 0, 0, 0.06);
+
+    position: relative;
+
+    z-index: 2;
+
+    animation:
+        cardEntrance 0.7s ease-out,
+        cardJiggle 4s ease-in-out 0.8s infinite;
+}
+
+
+/* =========================================================
+   ANIMATED ICON
+   ========================================================= */
+
+.not-available-icon {
+    width: 92px;
+    height: 92px;
+
+    margin: 0 auto 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 28px;
+
+    background: linear-gradient(
+        145deg,
+        #e9f8f0,
+        #f7fcfa
+    );
+
+    border: 1px solid rgba(116, 198, 157, 0.35);
+
+    box-shadow:
+        0 12px 30px rgba(27, 123, 87, 0.10);
+
+    animation: iconJiggle 2.8s ease-in-out infinite;
+}
+
+.not-available-icon span {
+    font-size: 42px;
+
+    display: block;
+
+    animation: iconRotate 3.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   LABEL
+   ========================================================= */
+
+.not-available-label {
+    margin: 0 0 8px;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    color: #1b7b57;
+}
+
+
+/* =========================================================
+   HEADING
+   ========================================================= */
+
+.not-available-card h1 {
+    margin: 0;
+
+    font-size: 32px;
+    font-weight: 800;
+
+    color: #1f2937;
+}
+
+.not-available-card h2 {
+    margin: 4px 0 16px;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    color: #1b7b57;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.not-available-description {
+    max-width: 350px;
+
+    margin: 0 auto;
+
+    font-size: 15px;
+    line-height: 1.7;
+
+    color: #667085;
+}
+
+
+/* =========================================================
+   COMING SOON BADGE
+   ========================================================= */
+
+.not-available-badge {
+    width: fit-content;
+
+    margin: 24px auto;
+
+    padding: 9px 16px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    border-radius: 999px;
+
+    background: #eef9f3;
+
+    color: #287a52;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.not-available-badge span {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #54b980;
+
+    animation: statusPulse 1.5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
+
+.not-available-back {
+    border: none;
+
+    padding: 13px 22px;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    border-radius: 13px;
+
+    background: #1b7b57;
+
+    color: white;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 20px rgba(27, 123, 87, 0.20);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.not-available-back:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 26px rgba(27, 123, 87, 0.28);
+}
+
+.not-available-back:active {
+    transform: scale(0.96);
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes cardEntrance {
+
+    0% {
+        opacity: 0;
+        transform: translateY(35px) scale(0.92);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translateY(-7px) scale(1.02);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* Small periodic "jiggle" */
+
+@keyframes cardJiggle {
+
+    0%,
+    88%,
+    100% {
+        transform: rotate(0deg) translateY(0);
+    }
+
+    90% {
+        transform: rotate(-1deg) translateY(-2px);
+    }
+
+    92% {
+        transform: rotate(1deg) translateY(1px);
+    }
+
+    94% {
+        transform: rotate(-0.7deg) translateY(-1px);
+    }
+
+    96% {
+        transform: rotate(0.5deg) translateY(0);
+    }
+}
+
+
+@keyframes iconJiggle {
+
+    0%,
+    100% {
+        transform: rotate(0deg) translateY(0);
+    }
+
+    25% {
+        transform: rotate(-5deg) translateY(-3px);
+    }
+
+    50% {
+        transform: rotate(5deg) translateY(0);
+    }
+
+    75% {
+        transform: rotate(-3deg) translateY(-2px);
+    }
+}
+
+
+@keyframes iconRotate {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(12deg);
+    }
+}
+
+
+@keyframes floatingOrb {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(20px, -18px);
+    }
+}
+
+
+@keyframes statusPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.45;
+        transform: scale(1.4);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .not-available-card {
+        padding: 38px 25px;
+    }
+
+    .not-available-card h1 {
+        font-size: 27px;
+    }
+
+    .not-available-card h2 {
+        font-size: 18px;
+    }
+
+    .not-available-description {
+        font-size: 14px;
+    }
+}

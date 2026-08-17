@@ -1,0 +1,5 @@
+package com.expensemanager.security;
+
+public class LoggedOutTokenService {
+
+}
